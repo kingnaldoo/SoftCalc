@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoftCalc: A sua calculadora online moderna</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/standart.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="main">
         <menu>
-            <img src="assets/logo.svg" alt="SoftCalc logo">
+            <div id="logo">
+                <img src="assets/logo.svg" alt="SoftCalc logo">
+            </div>
+            
             <ul>
-                <li alt="padrão">
-                    <img src="assets/calc-icon.svg">
-                    <h2>Padrão</h2>
+                <li alt="padrão" enabled>
+                    <div>
+                        <img src="assets/calc-icon.svg">
+                        <h2>Padrão</h2>
+                    </div>
                 </li>
             </ul>
         </menu>
 
         <main>
-            <div id="viewfinder">
-                <h1>0</h1>
-            </div>
+            <input type="text" placeholder="0">
 
             <div id="calculator">
-                <div id="actions">
-                    <div id="empty-box-1"></div>
+                <div id="top">
+                    <button id="empty-box-1" disabled></button>
+
                     <div id="actions">
-                        <button>
+                        <button id="b1">
                             <img src="assets/delete.svg" alt="Deletar">
                         </button>
 
-                        <button>
+                        <button id="b2">
                             <h3>CE</h3>
                         </button>
                     </div>
@@ -117,7 +127,7 @@
                         <h3>+</h3>
                     </button>
 
-                    <button></button>
+                    <button disabled></button>
 
                     <button>
                         <h3>0</h3>
@@ -136,15 +146,41 @@
     </div>
 
     <aside>
-        <div>
+        <div id="aside">
             <h2>HISTÓRICO</h2>
         </div>
 
-        <div id="history">
-            <h3>1 + 2 = 3</h3>
-            <h3>3 x 2 = 6</h3>
+        <div id="history-field">
+            <div id="list" >
+               <div class="history">
+                   <h3>1 + 2</h3>
+                   <h3>3</h3>
+               </div>
+
+               <div class="history">
+                <h3>1 + 2</h3>
+                <h3>3</h3>
+            </div>
+
+            <div class="history">
+                <h3>1 + 2</h3>
+                <h3>3</h3>
+            </div>
+
+            <div class="history">
+                <h3>1 + 2</h3>
+                <h3>3</h3>
+            </div>
+
+            <div class="history">
+                <h3>1 + 2</h3>
+                <h3>3</h3>
+            </div>
+            </div>
         </div>
         
     </aside>
+
+<script src="scripts/standart.js"></script>
 </body>
 </html>

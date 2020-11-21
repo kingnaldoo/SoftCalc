@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color: #363075;
+    --dark-purple: #201B54;
+    --light-purple: #8259E8;
+    --light-blue: #5470E6;
+    --gradient: linear-gradient(to right, var(--light-purple), var(--light-blue));
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+body{
+    background-color: var(--background-color);
+    display: flex;
+}
+
+img{
+    width: 2vw;
+}
+
+button {
+    cursor: pointer;
+}
