@@ -5,7 +5,7 @@
 </p>
 
 ## 🚀OBJETIVOS
-Repositório será utilizado para fins de teste de tecnologias, para tanto, a branch Master contém somente o código básico(HTML, CSS e JS) e novas Branchs serão criadas refatorando esse código utilizando as tecnologias.
+Repositório será utilizado para fins de teste de tecnologias, para tanto, a branch main contém somente o código básico(HTML, CSS e JS) e novas Branchs serão criadas refatorando esse código utilizando as tecnologias.
 
 ## 📝Liçenca
 Este repositório está sob a liçenca da [MIT LICENSE](LICENSE).<br><br>
