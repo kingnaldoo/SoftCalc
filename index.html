@@ -29,7 +29,8 @@
         </menu>
 
         <main>
-            <input type="text" placeholder="0">
+            <input type="text" placeholder="0" id="viser">
+            
 
             <div id="calculator">
                 <div id="top">
@@ -37,7 +38,7 @@
 
                     <div id="actions">
                         <button id="b1">
-                            <img src="assets/delete.svg" alt="Deletar">
+                            <img src="assets/delete.svg" alt="Deletar" id="delete">
                         </button>
 
                         <button id="b2">
@@ -47,93 +48,93 @@
                 </div>
 
                 <div id="keys">
-                    <button>
-                        <h3>%</h3>
+                    <button id="(">
+                        <h3>(</h3>
                     </button>
 
-                    <button>
-                        <h3>1/x</h3>
+                    <button id=")">
+                        <h3>)</h3>
                     </button>
 
-                    <button>
+                    <button id="x²">
                         <h3>x²</h3>
                     </button>
 
-                    <button>
-                        <img src="assets/square-root.svg" alt="raiz quadrada">
+                    <button id="√">
+                        <h3>√</h3>
                     </button>
 
-                    <button>
+                    <button id="x!">
                         <h3>x!</h3>
                     </button>
 
-                    <button>
+                    <button id="ln">
                         <h3>ln</h3>
                     </button>
 
-                    <button>
+                    <button id="log">
                         <h3>log</h3>
                     </button>
 
-                    <button>
+                    <button id="/">
                         <h3>/</h3>
                     </button>
 
-                    <button>
+                    <button id="7">
                         <h3>7</h3>
                     </button>
 
-                    <button>
+                    <button id="8">
                         <h3>8</h3>
                     </button>
 
-                    <button>
+                    <button id="9">
                         <h3>9</h3>
                     </button>
 
-                    <button>
+                    <button id="*">
                         <h3>*</h3>
                     </button>
 
-                    <button>
+                    <button id="4">
                         <h3>4</h3>
                     </button>
 
-                    <button>
+                    <button id="5">
                         <h3>5</h3>
                     </button>
 
-                    <button>
+                    <button id="6">
                         <h3>6</h3>
                     </button>
 
-                    <button>
+                    <button id="-">
                         <h3>-</h3>
                     </button>
 
-                    <button>
+                    <button id="1">
                         <h3>1</h3>
                     </button>
 
-                    <button>
+                    <button id="2">
                         <h3>2</h3>
                     </button>
 
-                    <button>
+                    <button id="3">
                         <h3>3</h3>
                     </button>
 
-                    <button>
+                    <button id="+">
                         <h3>+</h3>
                     </button>
 
                     <button disabled></button>
 
-                    <button>
+                    <button id="0">
                         <h3>0</h3>
                     </button>
 
-                    <button>
+                    <button id=",">
                         <h3>,</h3>
                     </button>
 
@@ -151,32 +152,7 @@
         </div>
 
         <div id="history-field">
-            <div id="list" >
-               <div class="history">
-                   <h3>1 + 2</h3>
-                   <h3>3</h3>
-               </div>
-
-               <div class="history">
-                <h3>1 + 2</h3>
-                <h3>3</h3>
-            </div>
-
-            <div class="history">
-                <h3>1 + 2</h3>
-                <h3>3</h3>
-            </div>
-
-            <div class="history">
-                <h3>1 + 2</h3>
-                <h3>3</h3>
-            </div>
-
-            <div class="history">
-                <h3>1 + 2</h3>
-                <h3>3</h3>
-            </div>
-            </div>
+            <div id="list"></div>
         </div>
         
     </aside>
