@@ -1,0 +1,4 @@
+@mixin centralizeContent() {
+    display: grid;
+    place-items: center;
+}

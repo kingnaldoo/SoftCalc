@@ -1,0 +1,28 @@
+@import '../../assets/styles/global.scss';
+
+#option {
+    background-color: $colorSecondaryBackground;
+    @include centralizeContent();
+
+    #content {
+        display: flex;
+        height: 8rem;
+        cursor: pointer;
+
+        img {
+            width: 4rem;
+            margin-right: 10px;
+            pointer-events: none;
+        }
+
+        h3 {
+            height: fit-content;
+            margin: auto 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+            font-size: 3rem;
+            color: white;
+            pointer-events: none;
+        }
+    }
+}

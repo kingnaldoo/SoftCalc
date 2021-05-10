@@ -1,0 +1,146 @@
+:root {
+  font-size: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #363075;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 1100px) {
+  :root {
+    font-size: 60%;
+  }
+}
+
+#container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+}
+
+#container #logo {
+  background-image: -webkit-gradient(linear, left top, right top, from(#8259E8), to(#5470E6));
+  background-image: linear-gradient(90deg, #8259E8, #5470E6);
+  width: 100%;
+  height: 18vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#container #logo img {
+  width: 20rem;
+}
+
+#container #viser {
+  height: 18vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#container #viser h1 {
+  font-size: 4rem;
+  text-align: right;
+  margin: 0 2rem;
+  color: white;
+}
+
+#container #keys {
+  height: 82vh;
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+}
+
+#container #keys button {
+  border: 0;
+  outline: none;
+}
+
+#container #keys #topKeys {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 5rem;
+}
+
+#container #keys #topKeys #empty1 {
+  width: 80%;
+  height: 5.3rem;
+  background-color: #201B54;
+}
+
+#container #keys #topKeys #actionKeys {
+  width: 20%;
+  height: 5.3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#container #keys #topKeys #actionKeys button {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+#container #keys #topKeys #actionKeys #delete {
+  background-color: #8259E8;
+}
+
+#container #keys #topKeys #actionKeys #delete img {
+  width: 3rem;
+}
+
+#container #keys #topKeys #actionKeys #clean {
+  background-color: #5470E6;
+}
+
+#container #keys #topKeys #actionKeys #clean h3 {
+  font-size: 2rem;
+  color: white;
+}
+
+#container #keys #bottomKeys {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+#container #historic #title {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 18vh;
+}
+
+#container #historic #title h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: white;
+}
+/*# sourceMappingURL=styles.css.map */
