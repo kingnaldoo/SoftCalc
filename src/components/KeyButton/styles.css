@@ -28,6 +28,19 @@ h1, h2, h3, h4, h5 {
   display: -ms-grid;
   display: grid;
   place-items: center;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#button:hover {
+  background-color: #46317c;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#button:active {
+  background-color: #8259E8;
 }
 
 #button #content {
@@ -35,7 +48,6 @@ h1, h2, h3, h4, h5 {
   display: -ms-flexbox;
   display: flex;
   height: 8rem;
-  cursor: pointer;
 }
 
 #button #content h3 {

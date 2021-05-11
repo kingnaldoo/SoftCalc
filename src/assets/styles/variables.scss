@@ -1,5 +1,9 @@
 $colorPrimaryBackground: #363075;
 $colorSecondaryBackground: #201B54;
-$colorPrimary: #8259E8;
-$colorSecondary: #5470E6;
-$gradientBackground: linear-gradient(90deg, $colorPrimary, $colorSecondary);
+$colorPrimaryDark: #46317c;
+$colorSecondaryDark: #304081;
+$colorPrimaryLight: #8259E8;
+$colorSecondaryLight: #5470E6;
+$scrollbarBackground: #8259e860;
+$gradientBackground: linear-gradient(90deg, $colorPrimaryLight, $colorSecondaryLight);
+$transitionDuration: 0.2s;

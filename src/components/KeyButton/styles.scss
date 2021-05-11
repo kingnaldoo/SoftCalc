@@ -3,12 +3,22 @@
 #button {
     background-color: $colorSecondaryBackground;
     @include centralizeContent();
+    transition-duration: $transitionDuration;
+
+    &:hover {
+        background-color: $colorPrimaryDark;
+        cursor: pointer;
+        transition-duration: $transitionDuration;
+    }
+
+    &:active {
+        background-color: $colorPrimaryLight;
+    }
 
     #content {
         display: flex;
         height: 8rem;
-        cursor: pointer;
-
+        
         h3 {
             height: fit-content;
             margin: auto 0;

@@ -15,7 +15,7 @@
             width: 20rem;
         }
     }
-
+ 
     #viser {
         height: 18vh;
         display: flex;
@@ -58,18 +58,31 @@
 
                 button{
                     @include centralizeContent();   
-                    cursor: pointer;        
+                    cursor: pointer;  
                 }
 
                 #delete {
-                    background-color: $colorPrimary;
+                    background-color: $colorPrimaryDark;
+                    transition-duration: $transitionDuration; 
+
+                    &:hover {
+                        background-color: $colorPrimaryLight;
+                        transition-duration: $transitionDuration;
+                    }
+
                     img{
                         width: 3rem;
                     }
                 }
 
                 #clean {
-                    background-color: $colorSecondary;
+                    background-color: $colorSecondaryDark;
+                    transition-duration: $transitionDuration;
+                    &:hover {
+                        background-color: $colorSecondaryLight;
+                        transition-duration: $transitionDuration;
+                    }
+
                     h3 {
                         font-size: 2rem;
                         color: white;
@@ -80,14 +93,12 @@
 
        #bottomKeys {
            display: grid;
-           grid-template-columns: repeat(4, 1fr);
+           grid-template-columns: 1fr 1fr 1fr 1fr;
        }
 
     }
 
     #historic {
-        
-
         #title {
             @include centralizeContent();
             height: 18vh;
@@ -97,6 +108,27 @@
                 font-size: 3rem;
                 font-weight: 300;
                 color: white;
+            }
+        }
+
+        #historicSection {
+            overflow-y: scroll;
+            
+            height: 50vh;
+
+            &::-webkit-scrollbar {
+                width: 0.5vw;
+                
+            }
+
+            &::-webkit-scrollbar-track {
+                background: $scrollbarBackground;
+                border-radius: 10px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: $colorPrimaryLight;
+                border-radius: 10px;
             }
         }
    }

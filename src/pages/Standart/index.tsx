@@ -8,6 +8,7 @@ import MenuOption from '../../components/MenuOption';
 import standartImg from '../../assets/calc-icon.svg';
 import deleteIcon from '../../assets/delete.svg';
 import KeyButton from '../../components/KeyButton';
+import HistoricEquation from '../../components/HistoricEquation';
 
 interface StandartProps {
     button?: ReactNode;
@@ -64,7 +65,13 @@ const Standart: React.FC<StandartProps> = () => {
                 </div>
                 
                 <div id="historicSection">
-
+                    <HistoricEquation />
+                    <HistoricEquation />
+                    <HistoricEquation />
+                    <HistoricEquation />
+                    <HistoricEquation />
+                    <HistoricEquation />
+                    <HistoricEquation />
                 </div>
             </aside>
         </div>

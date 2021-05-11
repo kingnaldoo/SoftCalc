@@ -107,7 +107,15 @@ h1, h2, h3, h4, h5 {
 }
 
 #container #keys #topKeys #actionKeys #delete {
+  background-color: #46317c;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#container #keys #topKeys #actionKeys #delete:hover {
   background-color: #8259E8;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 
 #container #keys #topKeys #actionKeys #delete img {
@@ -115,7 +123,15 @@ h1, h2, h3, h4, h5 {
 }
 
 #container #keys #topKeys #actionKeys #clean {
+  background-color: #304081;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#container #keys #topKeys #actionKeys #clean:hover {
   background-color: #5470E6;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 
 #container #keys #topKeys #actionKeys #clean h3 {
@@ -126,8 +142,8 @@ h1, h2, h3, h4, h5 {
 #container #keys #bottomKeys {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #container #historic #title {
@@ -142,5 +158,24 @@ h1, h2, h3, h4, h5 {
   font-size: 3rem;
   font-weight: 300;
   color: white;
+}
+
+#container #historic #historicSection {
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+#container #historic #historicSection::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+#container #historic #historicSection::-webkit-scrollbar-track {
+  background: #8259e860;
+  border-radius: 10px;
+}
+
+#container #historic #historicSection::-webkit-scrollbar-thumb {
+  background: #8259E8;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=styles.css.map */

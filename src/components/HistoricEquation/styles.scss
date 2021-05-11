@@ -1,0 +1,17 @@
+@import '../../assets/styles/global.scss';
+
+#equationItem {
+    margin: 0 auto;
+    width: 80%;
+    text-align: right;
+    margin-bottom: 2vw;
+    h3 {
+        color: white;
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    #result {
+        color: yellow;
+    }
+}

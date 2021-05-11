@@ -10,11 +10,11 @@ interface KeyButtonProps {
 
 const KeyButton: React.FC<KeyButtonProps> = (props) => {
     return (
-        <div id="button">
+        <button id="button">
             <div id="content">
                 <h3>{props.keyButton}</h3>
             </div>
-        </div>
+        </button>
     );
 }
 
