@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 
 import './styles.css';
 
@@ -10,13 +10,8 @@ import deleteIcon from '../../assets/delete.svg';
 import KeyButton from '../../components/KeyButton';
 import HistoricEquation from '../../components/HistoricEquation';
 
-interface StandartProps {
-    button?: ReactNode;
-}
-
-
-const Standart: React.FC<StandartProps> = () => {
-    const keys = ['%', '1/x', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
+function Standart(){
+    const keys = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
 
     return(
         <div id="container">
@@ -31,9 +26,7 @@ const Standart: React.FC<StandartProps> = () => {
             </div>
 
             <div>
-                <div id="viser">
-                    <h1>0</h1>
-                </div>
+                <input type="text" id="viser" placeholder="0"/>
 
                 <div id="keys">
                     <div id="topKeys">

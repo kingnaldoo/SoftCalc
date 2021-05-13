@@ -14,19 +14,40 @@
     &:active {
         background-color: $colorPrimaryLight;
     }
+}
 
-    #content {
-        display: flex;
-        height: 8rem;
-        
-        h3 {
-            height: fit-content;
-            margin: auto 0;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 100;
-            font-size: 3rem;
-            color: white;
-            pointer-events: none;
-        }
+#buttonEqual {
+    background-image: $gradientBackground;
+    @include centralizeContent();
+    transition-duration: $transitionDuration;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        background-image: none;
+        background-color: white;
+        transition-duration: $transitionDuration;
+    }   
+}
+
+#buttonNull {
+    background-color: $colorSecondaryBackground;
+    pointer-events: none;
+}
+
+#content {
+    display: flex;
+    height: 8rem;
+    
+    h3 {
+        height: fit-content;
+        margin: auto 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        font-size: 3rem;
+        color: white;
+        pointer-events: none;
     }
 }

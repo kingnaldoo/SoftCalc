@@ -45,23 +45,29 @@ h1, h2, h3, h4, h5 {
 }
 
 #container #viser {
+  background-color: #363075;
+  border: 0;
+  outline: none;
+  width: 100%;
   height: 18vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#container #viser h1 {
   font-size: 4rem;
   text-align: right;
-  margin: 0 2rem;
+  color: white;
+}
+
+#container #viser::-webkit-input-placeholder {
+  color: white;
+}
+
+#container #viser:-ms-input-placeholder {
+  color: white;
+}
+
+#container #viser::-ms-input-placeholder {
+  color: white;
+}
+
+#container #viser::placeholder {
   color: white;
 }
 
