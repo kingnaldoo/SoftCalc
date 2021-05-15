@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5 {
   display: -ms-flexbox;
   display: flex;
   height: 8rem;
+  pointer-events: none;
 }
 
 #content h3 {

@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     
-
     #logo {
         background-image: $gradientBackground;
         width: 100%;
@@ -29,7 +28,6 @@
         &::placeholder {
             color: white;
         }
-        
     }
 
     #keys {
@@ -72,6 +70,10 @@
                         transition-duration: $transitionDuration;
                     }
 
+                    &:active {
+                        background-color: white;
+                    }
+
                     img{
                         width: 3rem;
                     }
@@ -83,6 +85,10 @@
                     &:hover {
                         background-color: $colorSecondaryLight;
                         transition-duration: $transitionDuration;
+                    }
+
+                    &:active {
+                        background-color: white;
                     }
 
                     h3 {

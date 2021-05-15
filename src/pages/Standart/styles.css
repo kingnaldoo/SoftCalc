@@ -124,6 +124,10 @@ h1, h2, h3, h4, h5 {
           transition-duration: 0.2s;
 }
 
+#container #keys #topKeys #actionKeys #delete:active {
+  background-color: white;
+}
+
 #container #keys #topKeys #actionKeys #delete img {
   width: 3rem;
 }
@@ -138,6 +142,10 @@ h1, h2, h3, h4, h5 {
   background-color: #5470E6;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+}
+
+#container #keys #topKeys #actionKeys #clean:active {
+  background-color: white;
 }
 
 #container #keys #topKeys #actionKeys #clean h3 {
