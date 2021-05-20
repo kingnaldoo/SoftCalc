@@ -15,7 +15,7 @@ This repository is a simple application that will be used for the purpose of lea
  * SASS
 
 ## ✅ PREVIEW
-You can preview my application by clicking <a href="https://softcalc.kingnaldoo.repl.co">here</a>
+You can preview my application by clicking <a href="https://softcalc.kingnaldoo.repl.co" target="_blank">here</a>
 
 ## 📝LICENSE
 This repository is under the license of [MIT LICENSE](LICENSE).<br><br>
