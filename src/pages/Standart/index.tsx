@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './styles.css';
 
@@ -11,14 +11,19 @@ import KeyButton from '../../components/KeyButton';
 import HistoricEquation from '../../components/HistoricEquation'; 
 
 function Standart(){
-    const keys = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
-    const [viserValue, setViserValue] = useState("0");
+    const keys: string[] = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
+    // const optionalKeys = ["Shift", "Backspace", "Enter", "Delete"]
+    let equation: string[] = [];
+    let equationString: string = ''; 
 
-    function filterKeys(keyValue: string) {
-        const optionalKeys = ["Shift", "Backspace", "Enter", "Delete"]
-
-        if(keys.indexOf(keyValue) !== -1 || optionalKeys.indexOf(keyValue) !== -1) return keyValue 
-        else return "" 
+    function validadeKeys(key: string) {   
+        keys.map((a) => {
+            if(a === key){
+                equation.push(key);
+                return equationString+=key;
+            }
+        })
+        document.querySelector("#viser")?.setAttribute("value", equationString);
     }
 
     return( 
@@ -39,17 +44,19 @@ function Standart(){
                     id="viser" 
                     placeholder="0" 
                     autoComplete="off"
-                    value={viserValue}   
-                    onKeyDown={(e) => {filterKeys(e.key)}}
-                    
+                    value={equationString}   
+                    disabled
                 />
 
-                <div id="keys" onFocus={(e) => {setViserValue(e.target.innerText)}}>
+                <div 
+                    id="keys"                     
+                > 
                     <div id="topKeys">
                         <button id="empty1"></button>
                         <div id="actionKeys">
                             <button id="delete">
                                 <img src={deleteIcon} alt="Deletar"/>
+                                <p hidden>delete</p>
                             </button>
                             <button id="clean">
                                 <h3>CE</h3>
@@ -71,8 +78,14 @@ function Standart(){
                             
                             return (    
                                 <button 
-                                id={buttonName} 
-                                key={keyValue}
+                                    type="button"
+                                    autoFocus
+                                    id={buttonName} 
+                                    key={keyValue}
+                                    value={keyValue}
+                                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                        validadeKeys(e.currentTarget.value)
+                                    }}
                                 >                      
                                     <KeyButton keyButton={keyValue}/>
                                 </button>

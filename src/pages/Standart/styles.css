@@ -56,19 +56,19 @@ h1, h2, h3, h4, h5 {
 }
 
 #container #viser::-webkit-input-placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.521);
 }
 
 #container #viser:-ms-input-placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.521);
 }
 
 #container #viser::-ms-input-placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.521);
 }
 
 #container #viser::placeholder {
-  color: white;
+  color: rgba(255, 255, 255, 0.521);
 }
 
 #container #keys {
@@ -130,6 +130,11 @@ h1, h2, h3, h4, h5 {
 
 #container #keys #topKeys #actionKeys #delete img {
   width: 3rem;
+  pointer-events: none;
+}
+
+#container #keys #topKeys #actionKeys #delete p {
+  pointer-events: none;
 }
 
 #container #keys #topKeys #actionKeys #clean {
