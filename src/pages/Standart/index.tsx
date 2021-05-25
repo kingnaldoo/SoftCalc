@@ -11,23 +11,72 @@ import KeyButton from '../../components/KeyButton';
 import HistoricEquation from '../../components/HistoricEquation'; 
 
 function Standart(){
-    const keys: string[] = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
-    // const optionalKeys = ["Shift", "Backspace", "Enter", "Delete"]
+    const keys: string[] = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
     let equation: string[] = [];
-    let equationString: string = ''; 
+    
 
-    function validadeKeys(key: string) {   
-        keys.map((a) => {
-            if(a === key){
-                equation.push(key);
-                return equationString+=key;
+    function validadeKeysToBuildEquation(key: string) {  
+        if(keys.indexOf(key) !== -1)
+            (String(parseInt(key)) !== 'NaN') ? equation.push(key) : calculateEquation(key);
+        
+        else if(key === "delete" || key === "Backspace")
+            equation.pop();
+        
+        else if(key === "clean")
+            equation = [];
+        
+        showInViser(equation.join(''));
+    }
+
+    function showInViser(expression: string = ''){
+        document.querySelector("#viser")?.setAttribute("value", expression);
+    }
+
+    function calculateEquation(key: string) {
+        try {
+            const equationExpression: string = equation.join('');
+            let equationResult: number = eval(equationExpression);
+
+            switch(key){
+                case 'x²':
+                    equationResult = Math.pow(equationResult, 2);
+                    break;
+                case '√':
+                    equationResult = Math.sqrt(equationResult);
+                    break;
+                case 'X!':
+                    var cont=1;
+                    for (var i = 2; i <= equationResult; i++)
+                        cont = cont * i;
+                    equationResult = cont;
+                    break;
+                case 'ln':
+                    equationResult = Math.log(equationResult);
+                    break;
+                case 'log':
+                    equationResult = Math.log10(equationResult);
+                    break;
+                case '=':
+                    break;
+                
+                default:
+                    equation.push(key);
+                    return showInViser(equation.join(''));
             }
-        })
-        document.querySelector("#viser")?.setAttribute("value", equationString);
+
+            equation = equationResult.toString().split('');
+            showInViser(equationResult.toString());
+        }
+
+        catch{
+            equation = [];
+            showInViser(equation.join(''));
+            document.querySelector("#viser")?.setAttribute("placeholder", "Expressão Inválida");
+        }
     }
 
     return( 
-        <div id="container">
+        <div id="container" onKeyDown={(e) => {validadeKeysToBuildEquation(e.key)}}>
             <div>
                 <div id="logo">
                     <img src={logoImg} alt="SoftCalc Logo" />
@@ -44,21 +93,32 @@ function Standart(){
                     id="viser" 
                     placeholder="0" 
                     autoComplete="off"
-                    value={equationString}   
+                    value=""   
                     disabled
                 />
 
-                <div 
-                    id="keys"                     
-                > 
+                <div id="keys"> 
                     <div id="topKeys">
                         <button id="empty1"></button>
                         <div id="actionKeys">
-                            <button id="delete">
+                            <button 
+                                id="delete"
+                                value="delete"
+                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    validadeKeysToBuildEquation(e.currentTarget.value)
+                                }}
+                                >
                                 <img src={deleteIcon} alt="Deletar"/>
                                 <p hidden>delete</p>
                             </button>
-                            <button id="clean">
+
+                            <button 
+                                id="clean"
+                                value="clean"
+                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                                    validadeKeysToBuildEquation(e.currentTarget.value)
+                                }}
+                                >
                                 <h3>CE</h3>
                             </button>
                         </div>
@@ -84,7 +144,7 @@ function Standart(){
                                     key={keyValue}
                                     value={keyValue}
                                     onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                                        validadeKeys(e.currentTarget.value)
+                                        validadeKeysToBuildEquation(e.currentTarget.value)
                                     }}
                                 >                      
                                     <KeyButton keyButton={keyValue}/>
