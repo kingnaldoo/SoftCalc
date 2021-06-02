@@ -3,19 +3,21 @@ import React from 'react';
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
-import MenuOption from '../../components/MenuOption';
-
 import standartImg from '../../assets/calc-icon.svg';
 import deleteIcon from '../../assets/delete.svg';
+
 import KeyButton from '../../components/KeyButton';
 import HistoricEquation from '../../components/HistoricEquation'; 
+import MenuOption from '../../components/MenuOption';
 
 function Standart(){
     const keys: string[] = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
     let equation: string[] = [];
     
 
-    function validadeKeysToBuildEquation(key: string) {  
+    function validadeKeysToBuildEquation(key: string) { 
+        document.querySelector("#viser")?.setAttribute("placeholder", "0"); 
+        
         if(keys.indexOf(key) !== -1)
             (String(parseInt(key)) !== 'NaN') ? equation.push(key) : calculateEquation(key);
         
@@ -64,6 +66,7 @@ function Standart(){
                     return showInViser(equation.join(''));
             }
 
+            getResultsToSaveInHistoric([equationExpression, equationResult.toString()]);
             equation = equationResult.toString().split('');
             showInViser(equationResult.toString());
         }
@@ -73,6 +76,14 @@ function Standart(){
             showInViser(equation.join(''));
             document.querySelector("#viser")?.setAttribute("placeholder", "Expressão Inválida");
         }
+    }
+
+    function getResultsToSaveInHistoric(array: string[]){
+        const results = {
+            expression: array[0],
+            result: array[1]
+        }
+        console.log(JSON.stringify(results))
     }
 
     return( 
