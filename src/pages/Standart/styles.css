@@ -197,4 +197,10 @@ h1, h2, h3, h4, h5 {
   background: #8259E8;
   border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+  #container {
+    display: block;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
