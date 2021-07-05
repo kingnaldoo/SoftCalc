@@ -32,83 +32,19 @@
 
     #keys {
         height: 82vh;
-        background-color: #fff;
-        display: grid;
-
-        button {
-            border: 0;
-            outline: none;
+        background-color: $colorSecondaryBackground;
+        
+        #topKeys {
+            height: 10%;
+            display: flex;
+            justify-content: flex-end;
         }
 
-        #topKeys {
-            display: flex;
-            height: 5rem;
-
-            #empty1 {
-                width: 80%;
-                height: 5.3rem;
-                background-color: $colorSecondaryBackground;
-            }
-
-            #actionKeys {
-                width: 20%;
-                height: 5.3rem;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-
-                button{
-                    @include centralizeContent();   
-                    cursor: pointer;  
-                }
-
-                #delete {
-                    background-color: $colorPrimaryDark;
-                    transition-duration: $transitionDuration; 
-
-                    &:hover {
-                        background-color: $colorPrimaryLight;
-                        transition-duration: $transitionDuration;
-                    }
-
-                    &:active {
-                        background-color: white;
-                    }
-
-                    img{
-                        width: 3rem;
-                        pointer-events: none;
-                    }
-
-                    p{
-                        pointer-events: none;
-                    }
-                }
-
-                #clean {
-                    background-color: $colorSecondaryDark;
-                    transition-duration: $transitionDuration;
-                    &:hover {
-                        background-color: $colorSecondaryLight;
-                        transition-duration: $transitionDuration;
-                    }
-
-                    &:active {
-                        background-color: white;
-                    }
-
-                    h3 {
-                        font-size: 2rem;
-                        color: white;
-                    }
-                }  
-            }
-       }
-
-       #bottomKeys {
-           display: grid;
-           grid-template-columns: 1fr 1fr 1fr 1fr;
-       }
-
+        #bottomKeys {
+            height: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
     }
 
     #historic {

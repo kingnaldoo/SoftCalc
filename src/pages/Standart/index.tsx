@@ -1,23 +1,27 @@
-import React from 'react';
-
-import './styles.css';
+import { useState } from 'react';
 
 import logoImg from '../../assets/logo.svg';
 import standartImg from '../../assets/calc-icon.svg';
 import deleteIcon from '../../assets/delete.svg';
 
-import KeyButton from '../../components/KeyButton';
-import HistoricEquation from '../../components/HistoricEquation'; 
-import MenuOption from '../../components/MenuOption';
+import {HistoricEquation} from '../../components/HistoricEquation'; 
+import {MenuOption} from '../../components/MenuOption';
+import { KeyButton } from '../../components/KeyButton';
+
+import './styles.scss';
+
 
 function Standart(){
     const keys: string[] = ['(', ')', 'x²', '√', 'X!', 'ln', 'log', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '', '0', ',', '='];
     let equation: string[] = [];
+
+    const [placeholder, setPlaceholder] = useState("0");
+    const [viserValue, setViserValue] = useState("")
     
 
     function validadeKeysToBuildEquation(key: string) { 
-        document.querySelector("#viser")?.setAttribute("placeholder", "0"); 
-        
+        setPlaceholder("placeholder");
+
         if(keys.indexOf(key) !== -1)
             (String(parseInt(key)) !== 'NaN') ? equation.push(key) : calculateEquation(key);
         
@@ -31,12 +35,13 @@ function Standart(){
     }
 
     function showInViser(expression: string = ''){
-        document.querySelector("#viser")?.setAttribute("value", expression);
+        setViserValue(expression);
     }
 
     function calculateEquation(key: string) {
         try {
             const equationExpression: string = equation.join('');
+            // eslint-disable-next-line
             let equationResult: number = eval(equationExpression);
 
             switch(key){
@@ -74,7 +79,7 @@ function Standart(){
         catch{
             equation = [];
             showInViser(equation.join(''));
-            document.querySelector("#viser")?.setAttribute("placeholder", "Expressão Inválida");
+            setPlaceholder("Expressão Inválida")
         }
     }
 
@@ -87,7 +92,7 @@ function Standart(){
     }
 
     return( 
-        <div id="container" onKeyDown={(e) => {validadeKeysToBuildEquation(e.key)}}>
+        <div id="container" onKeyDown={e => validadeKeysToBuildEquation(e.key)}>
             <div>
                 <div id="logo">
                     <img src={logoImg} alt="SoftCalc Logo" />
@@ -102,65 +107,21 @@ function Standart(){
                 <input 
                     type="text" 
                     id="viser" 
-                    placeholder="0" 
+                    placeholder={placeholder} 
                     autoComplete="off"
-                    value=""   
+                    value={viserValue}
+                    onChange={e => setViserValue(e.target.value)}   
                     disabled
                 />
 
                 <div id="keys"> 
                     <div id="topKeys">
-                        <button id="empty1"></button>
-                        <div id="actionKeys">
-                            <button 
-                                id="delete"
-                                value="delete"
-                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                                    validadeKeysToBuildEquation(e.currentTarget.value)
-                                }}
-                                >
-                                <img src={deleteIcon} alt="Deletar"/>
-                                <p hidden>delete</p>
-                            </button>
-
-                            <button 
-                                id="clean"
-                                value="clean"
-                                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                                    validadeKeysToBuildEquation(e.currentTarget.value)
-                                }}
-                                >
-                                <h3>CE</h3>
-                            </button>
-                        </div>
+                        <KeyButton keyValue="CE"/>
+                        <KeyButton sourceImg={deleteIcon} keyValue="Deletar"/>
                     </div>
-                
                     <div id="bottomKeys">
-                        {keys.map((keyValue) => {
-                            let buttonName = "button";
-                            switch(keyValue){
-                                case "=":
-                                    buttonName = "buttonEqual";
-                                    break;
-                                case "":
-                                    buttonName = "buttonNull";
-                                    break;
-                            }
-                            
-                            return (    
-                                <button 
-                                    type="button"
-                                    autoFocus
-                                    id={buttonName} 
-                                    key={keyValue}
-                                    value={keyValue}
-                                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                                        validadeKeysToBuildEquation(e.currentTarget.value)
-                                    }}
-                                >                      
-                                    <KeyButton keyButton={keyValue}/>
-                                </button>
-                            );
+                        {keys.map((e) => {
+                            return <KeyButton keyValue={e} key={e}/>
                         })}
                     </div>
                 </div>
@@ -172,13 +133,7 @@ function Standart(){
                 </div>
                 
                 <div id="historicSection">
-                    <HistoricEquation />
-                    <HistoricEquation />
-                    <HistoricEquation />
-                    <HistoricEquation />
-                    <HistoricEquation />
-                    <HistoricEquation />
-                    <HistoricEquation />
+                    <HistoricEquation equation="2 + 2" result="4"/>
                 </div>
             </aside>
         </div>

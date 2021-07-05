@@ -1,15 +1,12 @@
-import React from 'react';
+import './styles.scss';
 
-import './styles.css';
-
-
-interface MenuOptionProps {
+type MenuOptionProps = {
     image: string;
     alt: string;
     textContent: string;
 }
 
-const MenuOption: React.FC<MenuOptionProps> = (props) => {
+export function MenuOption(props: MenuOptionProps) {
     return (
         <div id="option">
             <div id="content">
@@ -19,5 +16,3 @@ const MenuOption: React.FC<MenuOptionProps> = (props) => {
         </div>
     );
 }
-
-export default MenuOption;

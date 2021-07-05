@@ -1,14 +1,15 @@
-import React from 'react';
+import './styles.scss';
 
-import './styles.css';
+type HistoricEquationProps = {
+    equation: string;
+    result: string;
+}
 
-function HistoricEquation() {
+export function HistoricEquation(props: HistoricEquationProps) {
     return(
         <div id="equationItem">
-            <h3>2 + 5</h3>
-            <h3 id="result">7</h3>
+            <h3>{props.equation}</h3>
+            <h3 id="result">{props.result}</h3>
         </div>
     );
 }
-
-export default HistoricEquation;

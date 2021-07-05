@@ -1,9 +1,16 @@
 @import '../../assets/styles/global.scss';
 
-#button {
-    background-color: $colorSecondaryBackground;
+.button {
     @include centralizeContent();
     transition-duration: $transitionDuration;
+    
+    h3 {
+        color: white;
+        font-size: 1.8vw;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        pointer-events: none;
+    }
 
     &:hover {
         background-color: $colorPrimaryDark;
@@ -14,16 +21,32 @@
     &:active {
         background-color: $colorPrimaryLight;
     }
-  
 }
 
-#buttonEqual {
-    background-image: $gradientBackground;
-    @include centralizeContent();
-    transition-duration: $transitionDuration;
+.delete {
+    width: 10%;
+    background-color: $colorSecondaryLight;
+
+    img {
+        width: 2vw;
+        pointer-events: none;
+    }
 
     &:hover {
-        cursor: pointer;
+        filter: brightness(1.2);
+    }
+}
+
+.clear {
+    width: 10%;
+    background-color: $colorPrimaryLight;
+}
+
+.equal {
+    background-image: $gradientBackground;
+
+    &:hover {
+        filter: brightness(1.2);
     }
 
     &:active {
@@ -33,23 +56,6 @@
     }   
 }
 
-#buttonNull {
-    background-color: $colorSecondaryBackground;
+.null {
     pointer-events: none;
-}
-
-#content {
-    display: flex;
-    height: 8rem;
-     pointer-events: none;
-
-    h3 {
-        height: fit-content;
-        margin: auto 0;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 100;
-        font-size: 3rem;
-        color: white;
-        pointer-events: none;
-    }
 }

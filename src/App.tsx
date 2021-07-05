@@ -1,7 +1,6 @@
-import React from 'react';
 import Standart from './pages/Standart';
 
-import './assets/styles/global.css';
+import './assets/styles/global.scss';
 
 function App() {
   return (
