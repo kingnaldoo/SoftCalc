@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import Standart from './pages/standart.vue';
+import Standart from './pages/Standart.vue';
 
 export default {
     name: 'Routes',
@@ -11,5 +11,4 @@ export default {
         Standart
     }
 };
-
 </script>
