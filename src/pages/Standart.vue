@@ -70,24 +70,9 @@
             
             <div class="history-section">
                 <ul class="history-list">
-                    <li class="history-item">
-                        <h4>4 + 5</h4>
-                        <h4 class="result">9</h4>
-                    </li>
-
-                    <li class="history-item">
-                        <h4>4 + 5</h4>
-                        <h4 class="result">9</h4>
-                    </li>
-
-                    <li class="history-item">
-                        <h4>4 + 5</h4>
-                        <h4 class="result">9</h4>
-                    </li>
-
-                    <li class="history-item">
-                        <h4>4 + 5</h4>
-                        <h4 class="result">9</h4>
+                    <li v-for="(historicItem, index) in historic" :key="index" class="history-item">
+                        <h4>{{ historicItem.equation }}</h4>
+                        <h4 class="result">{{ historicItem.result }}</h4>
                     </li>
                 </ul>
             </div>
@@ -101,7 +86,8 @@ export default {
     name: 'Standart',
     data() {
         return {
-            input_display: ''
+            input_display: '',
+            historic: []
         };
     },
     methods: {
@@ -115,36 +101,40 @@ export default {
             this.input_display += e.currentTarget.innerHTML;
         },
         calculate(e) {
-            const resultExpression = eval(this.input_display.replace(',', '.'));
+            this.historic.push({ equation: this.input_display });
+            let resultExpression = eval(this.input_display.replace(',', '.'));
+            
             switch(e.currentTarget.innerHTML) {
                 case '=':
-                    this.input_display = resultExpression.toString().replace('.', ',');
                     break;
                 case '%':
-                    this.input_display = (resultExpression*0.01).toString().replace('.', ',');
+                    resultExpression = resultExpression*0.01;
                     break;
                 case '1/X':
-                    this.input_display = (1/resultExpression).toString().replace('.', ',');
+                    resultExpression = 1/resultExpression;
                     break;
                 case 'x²':
-                    this.input_display = (Math.pow(resultExpression, 2)).toString().replace('.', ',');
+                    resultExpression = Math.pow(resultExpression, 2);
                     break;
                 case '√':
-                    this.input_display = (Math.sqrt(resultExpression)).toString().replace('.', ',');
+                    resultExpression = Math.sqrt(resultExpression);
                     break;
                 case 'ln':
-                    this.input_display = (Math.log(resultExpression)).toString().replace('.', ',');
+                    resultExpression = Math.log(resultExpression);
                     break;
                 case 'log':
-                    this.input_display = (Math.log10(resultExpression)).toString().replace('.', ',');
+                    resultExpression = Math.log10(resultExpression);
                     break;
                 case 'x!':
                     var factorial = 1;
                     for(var x = 1; x <= resultExpression; x++) {
                         factorial=factorial*x;
                     }
-                    this.input_display = factorial.toString().replace('.', ',');
+                    resultExpression = factorial;
+                    break;
             }
+            this.input_display = resultExpression.toString().replace('.', ',');
+            this.historic[this.historic.length-1].result = this.input_display;
         }
     }
 };
