@@ -36,30 +36,30 @@
                     </li>
 
                     <div class="keyboard-items-bottom">
-                        <button class="bottom-key" type="button">%</button>
-                        <button class="bottom-key" type="button">1/X</button>
-                        <button class="bottom-key" type="button">x²</button>
-                        <button class="bottom-key" type="button">√</button>
-                        <button class="bottom-key" type="button">x!</button>
-                        <button class="bottom-key" type="button">ln</button>
-                        <button class="bottom-key" type="button">log</button>
-                        <button class="bottom-key" type="button">/</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">%</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">1/X</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">x²</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">√</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">x!</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">ln</button>
+                        <button class="bottom-key" v-on:click="calculate" type="button">log</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">/</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">7</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">8</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">9</button>
-                        <button class="bottom-key" type="button">*</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">*</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">4</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">5</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">6</button>
-                        <button class="bottom-key" type="button">-</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">-</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">1</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">2</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">3</button>
-                        <button class="bottom-key" type="button">+</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">+</button>
                         <div></div>
                         <button class="bottom-key" v-on:click="insertValue" type="button">0</button>
                         <button class="bottom-key" v-on:click="insertValue" type="button">,</button>
-                        <button class="bottom-key equal" type="button">=</button>
+                        <button class="bottom-key equal" v-on:click="calculate" type="button">=</button>
                     </div>
                 </ul>
             </div>
@@ -114,6 +114,38 @@ export default {
         insertValue(e) {
             this.input_display += e.currentTarget.innerHTML;
         },
+        calculate(e) {
+            const resultExpression = eval(this.input_display.replace(',', '.'));
+            switch(e.currentTarget.innerHTML) {
+                case '=':
+                    this.input_display = resultExpression.toString().replace('.', ',');
+                    break;
+                case '%':
+                    this.input_display = (resultExpression*0.01).toString().replace('.', ',');
+                    break;
+                case '1/X':
+                    this.input_display = (1/resultExpression).toString().replace('.', ',');
+                    break;
+                case 'x²':
+                    this.input_display = (Math.pow(resultExpression, 2)).toString().replace('.', ',');
+                    break;
+                case '√':
+                    this.input_display = (Math.sqrt(resultExpression)).toString().replace('.', ',');
+                    break;
+                case 'ln':
+                    this.input_display = (Math.log(resultExpression)).toString().replace('.', ',');
+                    break;
+                case 'log':
+                    this.input_display = (Math.log10(resultExpression)).toString().replace('.', ',');
+                    break;
+                case 'x!':
+                    var factorial = 1;
+                    for(var x = 1; x <= resultExpression; x++) {
+                        factorial=factorial*x;
+                    }
+                    this.input_display = factorial.toString().replace('.', ',');
+            }
+        }
     }
 };
 </script>
