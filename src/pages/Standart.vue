@@ -21,42 +21,45 @@
                     type="text" 
                     id="display"
                     placeholder="0"
+                    v-model="input_display"
                 />
             </div>
 
             <div class="input-keyboard">
                 <ul class="keyboard-list">
                     <li class="keyboard-items-top">
-                        <button class="top-key delete" type="button">
+                        <button class="top-key delete" type="button" v-on:click="deleteChar">
                             <img src="../assets/icons/delete.svg" alt="Deletar número">
                         </button>
 
-                        <button class=" top-key clear" type="button">CE</button>
+                        <button class=" top-key clear" type="button" v-on:click="clearInput">CE</button>
                     </li>
 
                     <div class="keyboard-items-bottom">
-                        <button class="key-bottom" type="button">%</button>
-                        <button class="key-bottom" type="button">1/X</button>
-                        <button class="key-bottom" type="button">x²</button>
-                        <button class="key-bottom" type="button">√</button>
-                        <button class="key-bottom" type="button">x!</button>
-                        <button class="key-bottom" type="button">ln</button>
-                        <button class="key-bottom" type="button">log</button>
-                        <button class="key-bottom" type="button">7</button>
-                        <button class="key-bottom" type="button">8</button>
-                        <button class="key-bottom" type="button">9</button>
-                        <button class="key-bottom" type="button">*</button>
-                        <button class="key-bottom" type="button">4</button>
-                        <button class="key-bottom" type="button">5</button>
-                        <button class="key-bottom" type="button">6</button>
-                        <button class="key-bottom" type="button">-</button>
-                        <button class="key-bottom" type="button">1</button>
-                        <button class="key-bottom" type="button">2</button>
-                        <button class="key-bottom" type="button">3</button>
-                        <button class="key-bottom" type="button">+</button>
-                        <button class="key-bottom" type="button">0</button>
-                        <button class="key-bottom" type="button">,</button>
-                        <button class="key-bottom equal" type="button">=</button>
+                        <button class="bottom-key" type="button">%</button>
+                        <button class="bottom-key" type="button">1/X</button>
+                        <button class="bottom-key" type="button">x²</button>
+                        <button class="bottom-key" type="button">√</button>
+                        <button class="bottom-key" type="button">x!</button>
+                        <button class="bottom-key" type="button">ln</button>
+                        <button class="bottom-key" type="button">log</button>
+                        <button class="bottom-key" type="button">/</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">7</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">8</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">9</button>
+                        <button class="bottom-key" type="button">*</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">4</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">5</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">6</button>
+                        <button class="bottom-key" type="button">-</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">1</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">2</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">3</button>
+                        <button class="bottom-key" type="button">+</button>
+                        <div></div>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">0</button>
+                        <button class="bottom-key" v-on:click="insertValue" type="button">,</button>
+                        <button class="bottom-key equal" type="button">=</button>
                     </div>
                 </ul>
             </div>
@@ -93,10 +96,25 @@
     </div>
 </template>
 
-<script lang="ts">
-
+<script lang="js">
 export default {
     name: 'Standart',
+    data() {
+        return {
+            input_display: ''
+        };
+    },
+    methods: {
+        deleteChar() {
+            this.input_display = this.input_display.substring(0, this.input_display.length-1);
+        },
+        clearInput() {
+            this.input_display = '';
+        },
+        insertValue(e) {
+            this.input_display += e.currentTarget.innerHTML;
+        },
+    }
 };
 </script>
 
@@ -149,6 +167,7 @@ export default {
 
                         h5 {
                             color: white;
+                            font-family: 'Roboto', sans-serif;
                             font-size: 2vw;
                             font-weight: 100;
                         }
@@ -176,7 +195,14 @@ export default {
                     outline: none;
                     color: white;
                     font-size: 3vw;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 300;
                     text-align: right;
+                    pointer-events: none;
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.521);
+                    }
                 }
             }
 
@@ -225,6 +251,8 @@ export default {
                         .clear {
                             background-color: $secundary-color;
                             color: white;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: 100;
                             font-size: 1.5vw;
                         }
                     }
@@ -236,10 +264,12 @@ export default {
                         grid-template-columns: repeat(4, 1fr);
                         grid-template-rows: repeat(6, 1fr);
                         
-                        .key-bottom {
+                        .bottom-key {
                             background-color: $item-color;
                             border: 1px solid $background-color;
                             color: white;
+                            font-family: 'Roboto', sans-serif;
+                            font-weight: 100;
                             font-size: 2vw;
 
                             &:hover {
@@ -271,6 +301,7 @@ export default {
                 @include centralizeContent();
                 font-size: 2vw;
                 color: white;
+                font-family: 'Roboto', sans-serif;
                 font-weight: 400;
             }
 
@@ -302,8 +333,9 @@ export default {
                         
                         h4 {
                             color: white;
+                            font-family: 'Roboto', sans-serif;
                             font-size: 1.5vw;
-                            font-weight: 100;
+                            font-weight: 300;
                         }
 
                         .result {
